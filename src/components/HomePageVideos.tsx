@@ -1,33 +1,21 @@
-import { useEffect, useState } from "react";
-import apiClient from "../services/api-client";
 import "../HomePageVideos.css";
+import Grid from "@mui/material/Grid";
+import TextField from "@mui/material/TextField";
 
-interface Response {
-  items: FetchVideos[];
-}
-
-interface FetchVideos {
-  id: string;
-  snippet: Snippet;
-}
-
-interface Snippet {
-  title: string;
-  description: string;
-}
+import useVideos from "../Hooks/useVideos";
+import VideoCard from "./VideoCard";
 
 const HomePageVideos = () => {
-  const [videos, setVideos] = useState<FetchVideos[]>([]);
-  useEffect(() => {
-    apiClient.get<Response>("/videos").then((res) => setVideos(res.data.items));
-  }, []);
-
+  const { videos, error } = useVideos();
   return (
-    <ul>
-      {videos.map((video) => (
-        <li key={video.id}>{video.snippet.title}</li>
-      ))}
-    </ul>
+    <>
+      {error && <TextField>{error}</TextField>}
+      <Grid container spacing={3}>
+        {videos.map((video) => (
+          <VideoCard key={video.id} snippet={video.snippet} />
+        ))}
+      </Grid>
+    </>
   );
 };
 

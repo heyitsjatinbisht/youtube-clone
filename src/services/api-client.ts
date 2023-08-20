@@ -8,6 +8,6 @@ export default axios.create({
     chart: "mostPopular",
     regionCode: "IN",
     maxResults: 15,
-    key: "AIzaSyAotMk2tTdqmdQ7elZoCxzwiSghAbJCZZ0",
+    key: import.meta.env.VITE_REACT_APP_API_KEY,
   },
 });
