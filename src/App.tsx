@@ -1,6 +1,6 @@
 import Header from "./components/Header";
 import "./App.css";
-import RecommendedVideos from "./components/RecommendedVideos";
+import HomePageVideos from "./components/HomePageVideos";
 import SideBar from "./components/SideBar";
 
 const App = () => {
@@ -10,7 +10,7 @@ const App = () => {
 
       <div className="app_page">
         <SideBar />
-        <RecommendedVideos />
+        <HomePageVideos />
       </div>
     </div>
   );

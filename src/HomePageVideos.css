@@ -1,0 +1,10 @@
+.RecommendedVideos {
+  flex: 0.8;
+  background-color: #f9f9f9;
+  padding: 40px 20px;
+  padding-bottom: 0;
+}
+
+ul > li {
+  color: black;
+}
