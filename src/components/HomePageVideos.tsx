@@ -1,18 +1,19 @@
 import "../HomePageVideos.css";
 import Grid from "@mui/material/Grid";
-import TextField from "@mui/material/TextField";
-
 import useVideos from "../Hooks/useVideos";
 import VideoCard from "./VideoCard";
 
 const HomePageVideos = () => {
   const { videos, error } = useVideos();
+
   return (
     <>
-      {error && <TextField>{error}</TextField>}
-      <Grid container spacing={3}>
+      {error && <p>{error}</p>}
+      <Grid container spacing={3} padding={5}>
         {videos.map((video) => (
-          <VideoCard key={video.id} snippet={video.snippet} />
+          <Grid item xs={12} sm={6} md={4} lg={4} key={video.id} spacing={5}>
+            <VideoCard snippet={video.snippet} statistics={video.statistics} />
+          </Grid>
         ))}
       </Grid>
     </>

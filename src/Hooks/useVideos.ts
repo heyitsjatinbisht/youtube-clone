@@ -8,12 +8,16 @@ interface Response {
 interface FetchVideos {
   id: string;
   snippet: Snippet;
+  statistics: Statistics;
+  channelId: string;
 }
 
 export interface Snippet {
   title: string;
   description: string;
   thumbnails: Thumbnail;
+  channelTitle: string;
+  publishedAt: string;
 }
 
 interface Thumbnail {
@@ -26,6 +30,9 @@ interface ThumbnailSize {
   url: string;
   width: number;
   height: number;
+}
+export interface Statistics {
+  viewCount: number;
 }
 
 const useVideos = () => {
