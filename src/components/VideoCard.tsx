@@ -4,7 +4,6 @@ import Box from "@mui/material/Box";
 import { Snippet, Statistics } from "../Hooks/useVideos";
 import { formatShortString } from "../utils/ViewCount";
 import { getTimeAgo } from "../utils/time";
-import ChannelAvatar from "./ChannelAvatar";
 
 interface Props {
   snippet: Snippet;
@@ -19,7 +18,6 @@ const VideoCard = ({ snippet, statistics }: Props) => {
     <Box sx={{ width: 400 }}>
       <Card elevation={0}>
         <CardMedia component="img" src={snippet.thumbnails.medium.url} />
-        <ChannelAvatar />
         <h3>{snippet.title}</h3>
         <p>{snippet.channelTitle}</p>
         <p>

@@ -1,4 +1,4 @@
-import Avatar from "@mui/material/Avatar";
+// import Avatar from "@mui/material/Avatar";
 import useChannel from "../Hooks/useChannel";
 import { Box } from "@mui/material";
 
@@ -9,7 +9,8 @@ const ChannelAvatar = () => {
     <>
       {channelAvatar.map((ch) => (
         <Box key={ch.id}>
-          <Avatar src={ch.snippet.thumbnails.default.url} />
+          {/* <Avatar src={ch.snippet.thumbnails.default.url} /> */}
+          <img src={ch.snippet.thumbnails.default.url}></img>
         </Box>
       ))}
     </>
