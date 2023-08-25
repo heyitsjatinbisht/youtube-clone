@@ -1,8 +1,15 @@
-import { useEffect, useState } from "react";
 import apiClient from "../services/api-client";
+import { useInfiniteQuery } from "react-query";
 
 interface Response {
   items: FetchVideos[];
+  nextPageToken: string;
+  prevPageToken: string;
+  pageInfo: PageInfo;
+}
+interface PageInfo {
+  totalResults: number;
+  resultsPerPage: number;
 }
 
 interface FetchVideos {
@@ -36,13 +43,7 @@ export interface Statistics {
 }
 
 const useVideos = () => {
-  const [videos, setVideos] = useState<FetchVideos[]>([]);
-  const [error, setError] = useState("");
-  const [isLoading, setLoading] = useState(false);
-
-  useEffect(() => {
-    setLoading(true);
-
+  const getVideos = (pageToken: string) =>
     apiClient
       .get<Response>("/videos", {
         params: {
@@ -51,19 +52,18 @@ const useVideos = () => {
           regionCode: "IN",
           maxResults: 15,
           key: import.meta.env.VITE_REACT_APP_API_KEY,
+          pageToken: pageToken,
         },
       })
-      .then((res) => {
-        setVideos(res.data.items);
-        setLoading(false);
-      })
-      .catch((err) => {
-        setError(err.message);
-        setLoading(false);
-      });
-  }, []);
+      .then((res) => res.data);
 
-  return { videos, error, isLoading };
+  return useInfiniteQuery<Response, Error>({
+    queryKey: ["videos"],
+    queryFn: ({ pageParam }) => getVideos(pageParam),
+    getNextPageParam: (lastPage) => {
+      return lastPage.nextPageToken || undefined;
+    },
+  });
 };
 
 export default useVideos;
