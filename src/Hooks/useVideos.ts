@@ -1,7 +1,9 @@
-import apiClient from "../services/api-client";
+import APIClient from "../services/api-client";
 import { useInfiniteQuery } from "react-query";
 
-interface Response {
+const apiClient = new APIClient("/videos");
+
+export interface Response {
   items: FetchVideos[];
   nextPageToken: string;
   prevPageToken: string;
@@ -44,18 +46,16 @@ export interface Statistics {
 
 const useVideos = () => {
   const getVideos = (pageToken: string) =>
-    apiClient
-      .get<Response>("/videos", {
-        params: {
-          part: "snippet,contentDetails,statistics",
-          chart: "mostPopular",
-          regionCode: "IN",
-          maxResults: 15,
-          key: import.meta.env.VITE_REACT_APP_API_KEY,
-          pageToken: pageToken,
-        },
-      })
-      .then((res) => res.data);
+    apiClient.getAll<Response>({
+      params: {
+        part: "snippet,contentDetails,statistics",
+        chart: "mostPopular",
+        regionCode: "IN",
+        maxResults: 15,
+        key: import.meta.env.VITE_REACT_APP_API_KEY,
+        pageToken: pageToken,
+      },
+    });
 
   return useInfiniteQuery<Response, Error>({
     queryKey: ["videos"],
@@ -63,6 +63,7 @@ const useVideos = () => {
     getNextPageParam: (lastPage) => {
       return lastPage.nextPageToken || undefined;
     },
+    staleTime: 24 * 60 * 60 * 1000,
   });
 };
 
