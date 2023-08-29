@@ -6,6 +6,7 @@ import { Avatar } from "@mui/material";
 import "../Header.css";
 import MicIcon from "@mui/icons-material/Mic";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState<string>("");
@@ -43,7 +44,12 @@ const Header = () => {
               value={searchQuery}
               onChange={handleSearchInputChange}
             />
-            <SearchIcon className="header_searchbutton" />
+            <Link
+              to={`/search?query=${searchQuery}`}
+              className="header_searchbutton"
+            >
+              <SearchIcon />
+            </Link>
           </div>
           <div className="header_mic">
             <MicIcon />

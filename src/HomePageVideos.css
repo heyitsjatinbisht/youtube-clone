@@ -1,4 +1,5 @@
-.RecommendedVideos {
+.RecommendedVideos,
+Search_videos {
   flex: 0.8;
   background-color: #f9f9f9;
   padding: 40px 20px;
@@ -7,4 +8,11 @@
 
 ul > li {
   color: black;
+}
+
+.search_page {
+  display: flex;
+}
+.Video_player_link {
+  text-decoration: none;
 }

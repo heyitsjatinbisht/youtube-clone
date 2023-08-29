@@ -4,7 +4,7 @@
   justify-content: space-between;
   padding: 20px;
   gap: 20px;
-  position: static;
+  position: sticky;
   top: 0;
   z-index: 100;
   background-color: white;
@@ -39,10 +39,13 @@
   align-items: center;
 }
 .header_searchbutton {
+  width: 100%;
+  color: black;
   width: 50px !important;
   display: flex;
   border-left: 1px solid lightgray;
   align-items: center;
+  justify-content: center;
 }
 .header_mic {
   margin-left: 20px;

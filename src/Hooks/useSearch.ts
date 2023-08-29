@@ -11,6 +11,7 @@ const useSearch = (searchQuery: string) => {
       apiClient.getAll({
         params: {
           part: "id,snippet",
+          totalResults: 300,
           maxResults: 25,
           key: import.meta.env.VITE_REACT_APP_API_KEY,
           q: searchQuery,

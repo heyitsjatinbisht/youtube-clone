@@ -5,11 +5,11 @@ import VideoCard from "./VideoCard";
 import VideoCardSkeleton from "./VideoCardSkeleton";
 import InfiniteScroll from "react-infinite-scroll-component";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const HomePageVideos = () => {
   const { data, error, isLoading, fetchNextPage, hasNextPage } = useVideos();
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8];
-
   if (error) return <p>{error.message}</p>;
 
   const fetchedVideoCount =
@@ -29,10 +29,12 @@ const HomePageVideos = () => {
           <React.Fragment key={index}>
             {page.items.map((video) => (
               <Grid item xs={12} sm={6} md={4} lg={4} key={video.id}>
-                <VideoCard
-                  snippet={video.snippet}
-                  statistics={video.statistics}
-                />
+                <Link className="Video_player_link" to={`/video/${video.id}`}>
+                  <VideoCard
+                    snippet={video.snippet}
+                    statistics={video.statistics}
+                  />
+                </Link>
               </Grid>
             ))}
           </React.Fragment>
