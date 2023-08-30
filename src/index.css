@@ -1,3 +1,10 @@
 * {
   margin: 0;
 }
+
+/* Video Player Page CSS*/
+
+.video_player {
+  margin-top: 1rem;
+  margin-left: 4rem;
+}
