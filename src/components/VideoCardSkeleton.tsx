@@ -21,7 +21,6 @@ const VideoCardSkeleton = () => {
         width={250}
         sx={{ fontSize: "2rem" }}
       ></Skeleton>
-      \{" "}
     </Box>
   );
 };
