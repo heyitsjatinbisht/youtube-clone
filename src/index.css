@@ -5,6 +5,23 @@
 /* Video Player Page CSS*/
 
 .video_player {
-  margin-top: 1rem;
+  width: 60%;
+  height: 30rem;
+}
+
+.video_container {
   margin-left: 4rem;
+  margin-right: 4rem;
+  margin-top: 1rem;
+}
+
+@media (max-width: 780px) {
+  .video_player {
+    width: 100%;
+    height: 16rem;
+    margin: 0;
+  }
+  .video_container {
+    margin: 0;
+  }
 }

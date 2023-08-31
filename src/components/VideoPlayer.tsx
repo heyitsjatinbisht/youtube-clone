@@ -23,19 +23,19 @@ const VideoDetailPage: React.FC<VideoDetailPageProps> = () => {
   const embedUrl = `https://www.youtube.com/embed/${videoId}`;
 
   return (
-    <div>
+    <>
       <Header />
 
-      <iframe
-        className="video_player"
-        width="60%"
-        height="500"
-        src={embedUrl}
-        title="YouTube Video"
-        allowFullScreen
-      ></iframe>
-      <VideoDetail snippet={video.snippet} statistics={video.statistics} />
-    </div>
+      <div className="video_container">
+        <iframe
+          className="video_player"
+          src={embedUrl}
+          title="YouTube Video"
+          allowFullScreen
+        ></iframe>
+        <VideoDetail snippet={video.snippet} statistics={video.statistics} />
+      </div>
+    </>
   );
 };
 

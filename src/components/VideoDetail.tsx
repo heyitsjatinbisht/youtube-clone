@@ -12,7 +12,7 @@ const VideoDetail = ({ snippet, statistics }: Props) => {
   const formattedViewCount = formatShortString(statistics.viewCount);
   const timeAgo = getTimeAgo(snippet.publishedAt);
   return (
-    <Box marginLeft="4rem" marginTop={1}>
+    <Box marginTop={1}>
       <Typography fontWeight={600} variant="h6">
         {snippet?.title}
       </Typography>
