@@ -60,3 +60,36 @@
   border: none;
   outline: none;
 }
+
+@media (max-width: 768px) {
+  .header {
+    width: 100%;
+    padding: 0;
+    margin-top: 3px;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  .header_left .menu_icon {
+    display: none;
+  }
+
+  .header_right > .Videoicon {
+    display: none;
+  }
+  .header_right > .Notificationicon {
+    display: none;
+  }
+
+  .header_left > img {
+    margin: 0;
+    padding: 0;
+  }
+  .header_mic {
+    display: none;
+  }
+  .header_input_container {
+    margin: 4px;
+    padding: 0;
+    width: 200px;
+  }
+}

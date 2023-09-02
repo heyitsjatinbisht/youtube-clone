@@ -28,7 +28,7 @@ const Header = () => {
     <div className="header">
       <div className="header_left">
         {" "}
-        <MenuIcon />
+        <MenuIcon className="menu_icon" />
         <img
           className="header_logo"
           src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg"
@@ -57,8 +57,8 @@ const Header = () => {
         </div>
       </form>
       <div className="header_right">
-        <VideoCallIcon />
-        <NotificationsIcon />
+        <VideoCallIcon className="Videoicon" />
+        <NotificationsIcon className="Notificationicon" />
         <Avatar alt="img" src="" />
       </div>
     </div>
