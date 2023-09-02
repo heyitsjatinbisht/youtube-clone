@@ -65,9 +65,9 @@
   .header {
     width: 100%;
     padding: 0;
-    margin-top: 3px;
-    margin-left: 5px;
-    margin-right: 5px;
+    padding-top: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
   }
   .header_left .menu_icon {
     display: none;

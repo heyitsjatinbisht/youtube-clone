@@ -16,3 +16,19 @@ ul > li {
 .Video_player_link {
   text-decoration: none;
 }
+
+@media (max-width: 768px) {
+  .video_grid_container {
+    margin-left: 0 !important;
+    padding: 0 !important;
+    width: 400px !important;
+  }
+  .video_grid {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .Video_player_link {
+    display: block;
+    width: 400px;
+  }
+}

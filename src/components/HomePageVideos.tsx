@@ -17,18 +17,27 @@ const HomePageVideos = () => {
 
   return (
     <InfiniteScroll
+      className="infinte_scroll"
       dataLength={fetchedVideoCount}
       hasMore={!!hasNextPage}
       next={fetchNextPage}
       loader={""}
     >
-      <Grid container spacing={3} padding={3}>
+      <Grid className="video_grid_container" container spacing={3} padding={3}>
         {isLoading &&
           skeletons.map((skeleton) => <VideoCardSkeleton key={skeleton} />)}
         {data?.pages.map((page, index) => (
           <React.Fragment key={index}>
             {page.items.map((video) => (
-              <Grid item xs={12} sm={6} md={4} lg={4} key={video.id}>
+              <Grid
+                className="video_grid"
+                item
+                xs={12}
+                sm={6}
+                md={4}
+                lg={4}
+                key={video.id}
+              >
                 <Link className="Video_player_link" to={`/video/${video.id}`}>
                   <VideoCard
                     snippet={video.snippet}
