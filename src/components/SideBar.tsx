@@ -10,9 +10,13 @@ import WatchLaterIcon from "@mui/icons-material/WatchLater";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ContentCutIcon from "@mui/icons-material/ContentCut";
 
-const SideBar = () => {
+interface Props {
+  isOpen: boolean;
+}
+
+const SideBar = ({ isOpen }: Props) => {
   return (
-    <div className="sidebar">
+    <div className={`sidebar ${isOpen ? "open" : ""}`}>
       <SidebarRow selected Icon={HomeOutlinedIcon} title="Home" />
       <SidebarRow Icon={WhatshotOutlinedIcon} title="Trending" />
       <SidebarRow Icon={SubscriptionsOutlinedIcon} title="Subscription" />

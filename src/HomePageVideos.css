@@ -1,3 +1,12 @@
+.infinte_scroll {
+  transition: margin-left 0.3s;
+  margin-left: 190px;
+}
+.infinte_scroll.open {
+  transition: margin-left 0.3s;
+  margin-left: 0;
+}
+
 .RecommendedVideos,
 Search_videos {
   flex: 0.8;
@@ -30,5 +39,8 @@ ul > li {
   .Video_player_link {
     display: block;
     width: 400px;
+  }
+  .infinte_scroll {
+    margin-left: 0;
   }
 }

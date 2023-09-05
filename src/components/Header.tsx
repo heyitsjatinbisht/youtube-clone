@@ -8,7 +8,11 @@ import MicIcon from "@mui/icons-material/Mic";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-const Header = () => {
+interface Props {
+  toggleSidebar: () => void;
+}
+
+const Header: React.FC<Props> = ({ toggleSidebar }) => {
   const [searchQuery, setSearchQuery] = useState<string>("");
 
   const handleSearchInputChange = (
@@ -27,8 +31,9 @@ const Header = () => {
   return (
     <div className="header">
       <div className="header_left">
-        {" "}
-        <MenuIcon className="menu_icon" />
+        <div onClick={toggleSidebar}>
+          <MenuIcon className="menu_icon" />
+        </div>
         <img
           className="header_logo"
           src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg"

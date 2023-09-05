@@ -6,8 +6,11 @@ import VideoCardSkeleton from "./VideoCardSkeleton";
 import InfiniteScroll from "react-infinite-scroll-component";
 import React from "react";
 import { Link } from "react-router-dom";
+interface Props {
+  isOpen: boolean;
+}
 
-const HomePageVideos = () => {
+const HomePageVideos = ({ isOpen }: Props) => {
   const { data, error, isLoading, fetchNextPage, hasNextPage } = useVideos();
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8];
   if (error) return <p>{error.message}</p>;
@@ -17,7 +20,7 @@ const HomePageVideos = () => {
 
   return (
     <InfiniteScroll
-      className="infinte_scroll"
+      className={`infinte_scroll ${isOpen ? "open" : ""}`}
       dataLength={fetchedVideoCount}
       hasMore={!!hasNextPage}
       next={fetchNextPage}
