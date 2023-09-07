@@ -1,13 +1,13 @@
-import { useQuery } from "react-query";
 import APIClient from "../services/api-client";
 import { Response } from "./useVideos";
+import { useInfiniteQuery } from "react-query";
 
 const apiClient = new APIClient("/search");
 
 const useSearch = (searchQuery: string) => {
-  return useQuery<Response, Error>({
+  return useInfiniteQuery<Response, Error>({
     queryKey: ["search", searchQuery],
-    queryFn: () =>
+    queryFn: (pageParam) =>
       apiClient.getAll({
         params: {
           part: "id,snippet",
@@ -15,8 +15,12 @@ const useSearch = (searchQuery: string) => {
           maxResults: 25,
           key: import.meta.env.VITE_REACT_APP_API_KEY,
           q: searchQuery,
+          pageToken: pageParam,
         },
       }),
+    getNextPageParam: (lastPage) => {
+      return lastPage.nextPageToken || undefined;
+    },
   });
 };
 

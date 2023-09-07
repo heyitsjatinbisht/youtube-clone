@@ -9,7 +9,7 @@ export interface Response {
   prevPageToken: string;
   pageInfo: PageInfo;
 }
-interface PageInfo {
+export interface PageInfo {
   totalResults: number;
   resultsPerPage: number;
 }

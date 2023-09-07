@@ -12,7 +12,7 @@ interface Props {
   toggleSidebar: () => void;
 }
 
-const Header: React.FC<Props> = ({ toggleSidebar }) => {
+const Header = ({ toggleSidebar }: Props) => {
   const [searchQuery, setSearchQuery] = useState<string>("");
 
   const handleSearchInputChange = (
