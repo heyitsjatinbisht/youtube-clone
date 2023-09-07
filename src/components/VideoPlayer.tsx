@@ -24,7 +24,11 @@ const VideoDetailPage: React.FC<VideoDetailPageProps> = () => {
 
   return (
     <>
-      <Header />
+      <Header
+        toggleSidebar={function (): void {
+          throw new Error("Function not implemented.");
+        }}
+      />
 
       <div className="video_container">
         <iframe
