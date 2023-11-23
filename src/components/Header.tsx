@@ -24,6 +24,11 @@ const Header = ({ toggleSidebar }: Props) => {
   const handleSearchSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
+    if (!searchQuery.trim()) {
+      // Do nothing if the search query is empty
+      return;
+    }
+
     // Update the browser's location using JavaScript
     window.location.href = `/search?query=${searchQuery}`;
   };

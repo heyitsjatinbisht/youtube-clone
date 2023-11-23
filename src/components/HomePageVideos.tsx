@@ -26,7 +26,7 @@ const HomePageVideos = ({ isOpen }: Props) => {
       next={fetchNextPage}
       loader={""}
     >
-      <Grid className="video_grid_container" container spacing={3} padding={3}>
+      <Grid className="video_grid_container" container spacing={2} padding={3}>
         {isLoading &&
           skeletons.map((skeleton) => <VideoCardSkeleton key={skeleton} />)}
         {data?.pages.map((page, index) => (
