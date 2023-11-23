@@ -39,11 +39,13 @@ const Header = ({ toggleSidebar }: Props) => {
         <div onClick={toggleSidebar}>
           <MenuIcon className="menu_icon" />
         </div>
-        <img
-          className="header_logo"
-          src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg"
-          alt=""
-        />
+        <Link to={"/"}>
+          <img
+            className="header_logo"
+            src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg"
+            alt=""
+          />
+        </Link>
       </div>
       <form onSubmit={handleSearchSubmit}>
         <div className="header_input_container">
