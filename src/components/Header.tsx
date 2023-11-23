@@ -24,11 +24,6 @@ const Header = ({ toggleSidebar }: Props) => {
   const handleSearchSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    if (!searchQuery.trim()) {
-      // Do nothing if the search query is empty
-      return;
-    }
-
     // Update the browser's location using JavaScript
     window.location.href = `/search?query=${searchQuery}`;
   };
@@ -56,12 +51,15 @@ const Header = ({ toggleSidebar }: Props) => {
               value={searchQuery}
               onChange={handleSearchInputChange}
             />
-            <Link
-              to={`/search?query=${searchQuery}`}
-              className="header_searchbutton"
-            >
-              <SearchIcon />
-            </Link>
+            {!searchQuery && <SearchIcon className="header_searchbutton" />}
+            {searchQuery && (
+              <Link
+                to={`/search?query=${searchQuery}`}
+                className="header_searchbutton"
+              >
+                <SearchIcon />
+              </Link>
+            )}
           </div>
           <div className="header_mic">
             <MicIcon />

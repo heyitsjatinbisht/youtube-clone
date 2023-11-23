@@ -3,6 +3,7 @@ import { Snippet, Statistics } from "../Hooks/useVideos";
 import { formatShortString } from "../utils/ViewCount";
 import { getTimeAgo } from "../utils/time";
 import { useState } from "react";
+import "../App.css";
 
 interface Props {
   snippet: Snippet;
@@ -36,9 +37,13 @@ const VideoDetail = ({ snippet, statistics }: Props) => {
         {snippet?.description.length > 100 && (
           <div onClick={handleExpandClick}>
             {expanded ? (
-              <Typography fontWeight={600}>...less</Typography>
+              <Typography className="expandable_text" fontWeight={600}>
+                ...less
+              </Typography>
             ) : (
-              <Typography fontWeight={600}>...more</Typography>
+              <Typography className="expandable_text" fontWeight={600}>
+                ...more
+              </Typography>
             )}
           </div>
         )}

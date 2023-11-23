@@ -1,3 +1,7 @@
 .app_page {
   display: flex;
 }
+
+.expandable_text {
+  cursor: pointer;
+}
